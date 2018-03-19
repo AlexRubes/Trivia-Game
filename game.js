@@ -44,7 +44,6 @@ let questions = [{
 ];
 
 let userAnswers = [];
-let counter = 10;
 let rightAnswers = 0;
 let wrongAnswers = 0;
 let unanswered = 0;
@@ -66,31 +65,30 @@ function startGame() {
 
  function startTimer () {
     var timeleft = 10;
-    var triviaTimer = setInterval(function(){       
+        var triviaTimer = setInterval(function(){       
             $(".count").text(--timeleft);
             
             if(timeleft <= 0) {
-                alert("Time's up!");
+                timeleft = 1
                 stopGame();
+                clearInterval(triviaTimer);
             }
         }, 1000);
-      };
+};
 
 
 function stopGame () {
-//collect click for each answer
-//compare click to correct answer
-//if correct answer, record as correct
-//if incorrect, record as incorrect
+
 $('.js-questions input:checked').each(function() {
     let answerChecked = $(this).val();
+        //compare click to correct answer
         if (answerChecked === questions[$(this).attr('name')].correctAnswer) {
-            console.log('woohoo');
+            //if correct answer, record as correct
             rightAnswers++;
             $("#correct").text(rightAnswers);
 
         } else {
-            console.log('doh');
+            //if incorrect, record as incorrect
             wrongAnswers++;
             $("#incorrect").text(wrongAnswers);
         }
@@ -98,7 +96,6 @@ $('.js-questions input:checked').each(function() {
 });
 
 };
-
 
 //events
 //when the user clicks start, open new page
