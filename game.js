@@ -14,6 +14,11 @@ let questions = [{
 ];
 
 let userAnswers = [];
+let counter = 10;
+let rightAnswers = 0;
+let wrongAnswers = 0;
+let unanswered = 0;
+let clockRunning = false;
 
 //functions
 function startGame() {
@@ -29,6 +34,19 @@ function startGame() {
     }
 }
 
+ function startTimer () {
+    var timeleft = 10;
+    var triviaTimer = setInterval(function(){       
+            $(".count").text(--timeleft);
+            
+            if(timeleft <= 0) {
+                alert("Time's up!");
+                stopGame();
+            }
+        }, 1000);
+      };
+
+
 function stopGame () {
 //collect click for each answer
 //compare click to correct answer
@@ -38,8 +56,13 @@ $('.js-questions input:checked').each(function() {
     let answerChecked = $(this).val();
         if (answerChecked === questions[$(this).attr('name')].correctAnswer) {
             console.log('woohoo');
+            rightAnswers++;
+            $("#correct").text(rightAnswers);
+
         } else {
             console.log('doh');
+            wrongAnswers++;
+            $("#incorrect").text(wrongAnswers);
         }
 
 });
@@ -51,6 +74,7 @@ $('.js-questions input:checked').each(function() {
 //when the user clicks start, open new page
 $(".js-start").on('click', function() {
     startGame();
+    startTimer();
 
 });
 //once new page opens, timer begins to count down
@@ -60,8 +84,6 @@ $(".js-stop").on('click', function() {
     stopGame();
 
 });
-//or end game when timer runs out, show score
-//after final click, record responses
-//and show results page
+
 
 });
