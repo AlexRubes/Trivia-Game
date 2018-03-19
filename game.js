@@ -2,14 +2,44 @@
 $(document).ready(function() {
 //global variables
 let questions = [{
-    "question": "what is marges maiden name?",
-    "answers": ["smith", "bouvier","bubble"],
-    "correctAnswer": "bouvier",
+    "question": "When is Mexican Independence Day?",
+    "answers": ["May 5th", "Sep 16th","Nov 2nd"],
+    "correctAnswer": "Sep 16th",
 },
 {
-    "question": "what is homers favorite snack?",
-    "answers": ["donuts", "beer","hummus"],
-    "correctAnswer": "donuts",  
+    "question": "What Mexican holiday is observed to pray for and remember friends and family members who have died, and help support their spiritual journey?",
+    "answers": ["Día de Muertos", "Día de la Virgen de Guadalupe","Día de la Revolución"],
+    "correctAnswer": "Día de Muertos",  
+},
+{
+    "question": "Who is the current President of Mexico?",
+    "answers": ["Vicente Fox", "Enrique Peña Nieto","Cristina Fernández de Kirchner"],
+    "correctAnswer": "Enrique Peña Nieto",  
+},
+{
+    "question": "What is a well-known Mexican stew made from hominy, with meat (typically pork), and garnished with shredded cabbage, chile peppers, onion, garlic, radishes, avocado, salsa or limes?",
+    "answers": ["Paella", "Burrito","Pozole"],
+    "correctAnswer": "Pozole",  
+},
+{
+    "question": "What is the name of the popular Mexican dance that represents the courtship of a man and a woman?",
+    "answers": ["Jarabe Tapatío", "Polka","Bachata"],
+    "correctAnswer": "Jarabe Tapatío",  
+},
+{
+    "question": "What is the dominant religion in Mexico?",
+    "answers": ["Judaism", "Buddhism","Catholicism"],
+    "correctAnswer": "Catholicism",  
+},
+{
+    "question": "What is Mexico’s number one exported product?",
+    "answers": ["Avocados", "Vehicles","Gems"],
+    "correctAnswer": "Vehicles",  
+},
+{
+    "question": "What animal appears repeatedly in Mexican mythology?",
+    "answers": ["Snake", "Bull","Chihuahua"],
+    "correctAnswer": "Snake",  
 }
 ];
 
