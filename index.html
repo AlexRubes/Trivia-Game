@@ -7,27 +7,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="./reset.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="./style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Alex+Brush" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     
 </head>
 <body>
-    <h1>Game</h1>
+    <h1 class="topheader">Mexican Trivia Game</h1>
     <!--start game on button-->
-    <button class="js-start">Start Game</button> 
+    <div class="container">     
+        <br><br>     
+        <button class="js-start start-button">Start Game</button> 
     
-    <!--counter-->
-    <div class="count"></div>
+        <!--counter-->
+        <div class="js-count"></div>
 
-    <!--questions & answers get rendered here-->
-    <div class="js-questions"></div>
+        <!--questions & answers get rendered here-->
+        <div class="js-questions"></div>
+        
+        <!--stop game on button-->
+        <button class="js-stop stop-button">End Now!</button>
+        
+        <div class="results">
+            <div>Correct: <span id = "correct"></span> </div>
+            <div>Incorrect: <span id = "incorrect"></span></div>
+            <div>Unanswered: <span id = "unanswered"></span></div>
+        </div>                                      
+    </div>
     
-    <!--stop game on button-->
-    <button class="js-stop">End Now!</button>
-    
-    <div>Correct: <span id = "correct"></span> </div>
-    <div>Incorrect: <span id = "incorrect"></span></div>
-    <div>Unanswered: <span id = "unanswered"></span></div>
-
     <script src="./game.js"></script>
 </body>
 </html>

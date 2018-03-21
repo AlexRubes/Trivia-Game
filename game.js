@@ -47,11 +47,13 @@ let userAnswers = [];
 let rightAnswers = 0;
 let wrongAnswers = 0;
 let unanswered = 0;
-let clockRunning = false;
+let triviaTimer = 0;
+
 
 //functions
 function startGame() {
     console.log('game');
+    
     //populate div with questions
     for (var i=0; i < questions.length; i++) {
         $('.js-questions').append('<p>'+ questions[i].question +'</p>');
@@ -59,14 +61,14 @@ function startGame() {
         for (var j=0; j < questions[i].answers.length; j++) {
             $('.js-questions').append('<input type="radio" value="'+ questions[i].answers[j]+ '" name="'+ i + '">' + questions[i].answers[j] +'</input>');
         }
-        $('.js-questions').append('<br><hr>');
+        $('.js-questions').append('<br><br>');
     }
 }
 
  function startTimer () {
-    var timeleft = 10;
-        var triviaTimer = setInterval(function(){       
-            $(".count").text(--timeleft);
+    var timeleft = 120;
+        triviaTimer = setInterval(function(){       
+            $(".js-count").text(--timeleft);
             
             if(timeleft <= 0) {
                 timeleft = 1
@@ -95,6 +97,13 @@ $('.js-questions input:checked').each(function() {
 
 });
 
+// $('.js-questions input:radio[checked=false]').each(function() {
+//     unanswered++;
+//     $("#unanswered").text(unanswered);
+    
+// });
+
+
 };
 
 //events
@@ -109,6 +118,7 @@ $(".js-start").on('click', function() {
 //end game when stop button is clicked
 $(".js-stop").on('click', function() {
     stopGame();
+    clearInterval(triviaTimer);
 
 });
 

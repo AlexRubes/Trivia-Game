@@ -1,0 +1,41 @@
+body {
+    background: grey;
+    background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/2000px-Flag_of_Mexico.svg.png) no-repeat center center fixed;
+        background-size: cover;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    height:100vh;
+    width: 100vw;
+}
+.topheader {
+    color: black;
+    font-family: 'Alex Brush', cursive;
+    font-size: 90px;
+    padding: 10px;
+    text-align: center;
+}
+.container {
+    background-color: black;
+    margin: auto;
+    width: 80%;
+}
+.start-button {
+    background-color: #006847;
+    color: white;
+    display: block; 
+    font-size: 16px;
+    margin: 0 auto;  
+    padding: 10px 26px;                   
+}
+.stop-button {
+    background-color: #CE1126;
+    color: white;
+    display: block; 
+    font-size: 16px;
+    margin: 0 auto; 
+    padding: 10px 32px;                   
+}
+.results {
+    font-size: 25px;
+    text-align: center;
+}
