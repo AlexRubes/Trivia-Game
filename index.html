@@ -16,21 +16,21 @@
     <!--start game on button-->
     <div class="container">     
         <br><br>     
-        <button class="js-start start-button">Start Game</button> 
+        <button class="js-start start-button hidethree">Start Game</button> 
     
         <!--counter-->
-        <div class="js-count"></div>
+        <div class="js-count css-count hidethree"></div>
 
         <!--questions & answers get rendered here-->
-        <div class="js-questions"></div>
+        <div class="js-questions css-questions hidethree"></div>
         
         <!--stop game on button-->
-        <button class="js-stop stop-button">End Now!</button>
+        <button class="js-stop stop-button hide">End Now!</button>   
         
-        <div class="results">
+        <div class="results hidetwo">
+            <h3 class="resultsheader"> Your Results! </h3> 
             <div>Correct: <span id = "correct"></span> </div>
             <div>Incorrect: <span id = "incorrect"></span></div>
-            <div>Unanswered: <span id = "unanswered"></span></div>
         </div>                                      
     </div>
     

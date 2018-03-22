@@ -36,6 +36,23 @@ body {
     padding: 10px 32px;                   
 }
 .results {
+    color: white;
     font-size: 25px;
+    padding: 20px;
+    text-align: center;
+}
+.resultsheader {
+    font-size: 35px;
+    padding: 10px;
+    text-decoration: underline;
+}
+.css-count {  
+    color: yellow;
+    font-size: 35px;
+    padding: 20px;
+    text-align: center;
+}
+.css-questions {
+    padding: 20px;
     text-align: center;
 }

@@ -1,6 +1,8 @@
 //page load
 $(document).ready(function() {
 //global variables
+
+//create array of questions
 let questions = [{
     "question": "When is Mexican Independence Day?",
     "answers": ["May 5th", "Sep 16th","Nov 2nd"],
@@ -49,12 +51,15 @@ let wrongAnswers = 0;
 let unanswered = 0;
 let triviaTimer = 0;
 
+//hide stop button and results div
+$('.hide').hide();
+$('.hidetwo').hide();
+
 
 //functions
 function startGame() {
-    console.log('game');
-    
-    //populate div with questions
+
+    //populate div with questions and answers 
     for (var i=0; i < questions.length; i++) {
         $('.js-questions').append('<p>'+ questions[i].question +'</p>');
         //loop through answers
@@ -63,17 +68,28 @@ function startGame() {
         }
         $('.js-questions').append('<br><br>');
     }
+
+    //show stop button
+    $('.hide').show();
+    
 }
 
  function startTimer () {
     var timeleft = 120;
+        //timer will count down
         triviaTimer = setInterval(function(){       
             $(".js-count").text(--timeleft);
             
-            if(timeleft <= 0) {
-                timeleft = 1
+            //if timer gets to 0, stop game and timer
+            if(timeleft === 0) {
+                //timeleft = 1
                 stopGame();
                 clearInterval(triviaTimer);
+                //hide start button, questions, counter and stop button
+                $(".hidethree").hide();
+                $('.hide').hide();
+                //show results div
+                $(".hidetwo").show();
             }
         }, 1000);
 };
@@ -81,44 +97,41 @@ function startGame() {
 
 function stopGame () {
 
-$('.js-questions input:checked').each(function() {
-    let answerChecked = $(this).val();
-        //compare click to correct answer
-        if (answerChecked === questions[$(this).attr('name')].correctAnswer) {
-            //if correct answer, record as correct
+    for (let i = 0; i<questions.length; i++){
+        let tempSelector = $("input:checked").get(i);
+        let userAnswer = $(tempSelector).val(); 
+        if (userAnswer === questions[i].correctAnswer) {
+             //if correct answer, record as correct
             rightAnswers++;
             $("#correct").text(rightAnswers);
-
-        } else {
-            //if incorrect, record as incorrect
+        } if (userAnswer !== questions[i].correctAnswer) {
+             //if incorrect or unanswered, record as incorrect
             wrongAnswers++;
             $("#incorrect").text(wrongAnswers);
         }
-
-});
-
-// $('.js-questions input:radio[checked=false]').each(function() {
-//     unanswered++;
-//     $("#unanswered").text(unanswered);
-    
-// });
-
+    }
 
 };
 
 //events
-//when the user clicks start, open new page
+//when the user clicks start, begin game and show questions
 $(".js-start").on('click', function() {
     startGame();
+    //begin timer at start game
     startTimer();
 
 });
-//once new page opens, timer begins to count down
 
 //end game when stop button is clicked
 $(".js-stop").on('click', function() {
     stopGame();
+    //stop the timer when stop button has been selected
     clearInterval(triviaTimer);
+    //hide start button, questions, counter and stop button
+    $(".hidethree").hide();
+    $('.hide').hide();
+    //show results div
+    $(".hidetwo").show();
 
 });
 
